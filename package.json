@@ -1,0 +1,21 @@
+{
+  "name": "cv-analisis",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "watson-developer-cloud": "^2.29.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gportillo94/cv_nlu.git"
+  },
+  "engines": {
+    "node": "4.x"
+  }
+}

@@ -1,0 +1,11 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: cv-analisis
+  host: cv-analisis
+  disk_quota: 1024M
+  services:
+  - person-test-personality_insights
+  - Natural Language Understanding-ar

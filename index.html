@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CVs</title>
+	</head>
+	<body>
+
+		<h2>Nombre<h2>
+		<input type="text" id="nombre">
+		<h2>Historial Academico</h2>
+		<textarea id="histAcad" rows="15" cols="100"></textarea>
+		<p id="resHistAcad"></p>
+		<h2>Experiencia Laboral</h2>
+		<textarea id="expLab"rows="15" cols="100"></textarea>
+		<p id="resExpLab"></p>
+		<br />
+		<button id="enviarNLU">Analizar con NLU</button>
+		<button id="enviarPI">Analizar con PI</button>
+		<button id="imprimirBDservidor">Imprimir BD servidor</button>
+
+	</body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+
+
+
+		function success (data){
+			console.log("success");
+			console.log(data); 
+		}
+
+		function error(){
+			console.log("error"); 
+		}
+
+		$("#enviarNLU").on("click" , function(){
+			console.log("enviar"); 
+			$.ajax({
+				url: "/cvnlu",
+				type: "POST",
+				dataType: "json",
+				data: { histAcad: $("#histAcad").val(),
+						expLab : $("#expLab").val(),
+						nombre:$("#nombre").val()} 
+			})
+			.done(success).fail(error);
+		});
+
+
+		$("#enviarPI").on("click" , function(){
+			console.log("enviar"); 
+			$.ajax({
+				url: "/cvpi",
+				type: "POST",
+				dataType: "json",
+				data: { histAcad: $("#histAcad").val(),
+						expLab : $("#expLab").val(),
+						nombre:$("#nombre").val()} 
+			})
+			.done(success).fail(error);
+		});
+
+		$("#imprimirBDservidor").on("click" , function(){
+			console.log("enviar"); 
+			$.ajax({
+				url: "/imprimir",
+				type: "GET",
+				dataType: "json",
+			})
+			.done(success).fail(error);
+		});
+
+	</script>
+</html>
